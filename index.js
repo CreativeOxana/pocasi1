@@ -1,5 +1,5 @@
-const predpoved = {
-  pondeli: {
+const predpoved = [
+  {
     den: 'Pondělí',
     datum: '2023-10-02',
     denni_teplota: 20,
@@ -12,7 +12,7 @@ const predpoved = {
     popis_pocasi:
       'Pondělí bude zataženo s teplotami mezi 15°C ráno a 23°C odpoledne. Očekávají se mírné dešťové srážky, a proto byste měli mít s sebou deštník. Rychlost větru dosáhne 10 km/h a atmosférický tlak bude 1015 hPa.',
   },
-  utery: {
+  {
     den: 'Úterý',
     datum: '2023-10-03',
     denni_teplota: 22,
@@ -25,7 +25,7 @@ const predpoved = {
     popis_pocasi:
       'Úterý bude polojasno s teplotami mezi 16°C ráno a 25°C odpoledne. Očekává se několik oblaků na obloze, ale převážně slunečné počasí. Rychlost větru dosáhne 12 km/h a atmosférický tlak bude 1012 hPa.',
   },
-  streda: {
+  {
     den: 'Středa',
     datum: '2023-10-04',
     denni_teplota: 18,
@@ -38,7 +38,7 @@ const predpoved = {
     popis_pocasi:
       'Středa bude deštivá s teplotami mezi 13°C ráno a 20°C odpoledne. Očekává se celodenní déšť s oblačnou oblohou. Rychlost větru dosáhne 15 km/h a atmosférický tlak bude 1008 hPa.',
   },
-  ctvrtek: {
+  {
     den: 'Čtvrtek',
     datum: '2023-10-05',
     denni_teplota: 16,
@@ -51,7 +51,7 @@ const predpoved = {
     popis_pocasi:
       'Čtvrtek bude opět deštivý s teplotami mezi 11°C ráno a 18°C odpoledne. Očekávají se déšť a sníh se zhoršující se viditelností. Rychlost větru dosáhne 14 km/h a atmosférický tlak bude 1010 hPa.',
   },
-  patek: {
+  {
     den: 'Pátek',
     datum: '2023-10-06',
     denni_teplota: 19,
@@ -64,7 +64,7 @@ const predpoved = {
     popis_pocasi:
       'Pátek bude převážně oblačný s teplotami mezi 14°C ráno a 22°C odpoledne. Můžeme očekávat zataženou oblohu s občasnými projevy slunečního svitu. Rychlost větru dosáhne 11 km/h a atmosférický tlak bude 1013 hPa.',
   },
-  sobota: {
+  {
     den: 'Sobota',
     datum: '2023-10-07',
     denni_teplota: 21,
@@ -77,7 +77,7 @@ const predpoved = {
     popis_pocasi:
       'Sobota bude polojasná s teplotami mezi 17°C ráno a 24°C odpoledne. Převládne slunečné počasí s mírnými oblačnými intervaly. Rychlost větru dosáhne 13 km/h a atmosférický tlak bude 1015 hPa.',
   },
-  nedele: {
+  {
     den: 'Neděle',
     datum: '2023-10-08',
     denni_teplota: 23,
@@ -90,4 +90,17 @@ const predpoved = {
     popis_pocasi:
       'Neděle bude krásný slunečný den s teplotami mezi 18°C ráno a 26°C odpoledne. Nebude žádná oblačnost, a tak můžete očekávat celodenní slunečné počasí. Rychlost větru dosáhne 9 km/h a atmosférický tlak bude 1017 hPa.',
   },
-};
+];
+
+const mainElement = document.querySelector('main');
+
+predpoved.forEach((day) => {
+  mainElement.innerHTML += `
+    <div>
+    <h2>${day.den}</h2>
+    <p>Denní teplota: ${day.denni_teplota}°C</p>
+    <p>Stav počasí: ${day.stav_pocasi}</p>
+    <a href="detail.html#${day.datum}">Přečíst celou předpověď</a>
+    </div>
+  `;
+});
